@@ -1,0 +1,49 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Location {
+  address   String?
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Land {
+  area           String?
+  createdAt      DateTime  @default(now())
+  id             String    @id @default(cuid())
+  landArea       String?
+  landCreatedAt  DateTime?
+  landLocation   String?
+  landPriceM     String?
+  landPriceTotal String?
+  landUrl        String?
+  location       String?
+  priceM         String?
+  priceTotal     String?
+  updatedAt      DateTime  @updatedAt
+  url            String?
+}
+
+model House {
+  area            String?
+  createdAt       DateTime  @default(now())
+  houseArea       String?
+  houseCreatedAt  DateTime?
+  houseLocation   String?
+  housePriceM     String?
+  housePriceTotal String?
+  houseUrl        String?
+  id              String    @id @default(cuid())
+  location        String?
+  priceM          String?
+  priceTotal      String?
+  updatedAt       DateTime  @updatedAt
+  url             String?
+}
